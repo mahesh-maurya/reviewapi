@@ -392,14 +392,14 @@ class Site extends CI_Controller
             {
             $image=$this->user_model->getimagebyid($id);
                // print_r($image);
-                $image=$image;
+                $image=$image->image;
+				
             }
             
 			if($this->home_model->edit($id,$title,$description,$image)==0)
 			$data['alerterror']="Home Editing was unsuccesful";
 			else
-			$data['alertsuccess']="Home edited Successfully.";
-			
+			$data['alertsuccess']="Home edited Successfully.";			
 			$data['redirect']="site/viewhome";
 			//$data['other']="template=$template";
 			$this->load->view("redirect",$data);
