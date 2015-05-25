@@ -19,7 +19,7 @@
     <script src="<?php echo base_url('frontassets/jquery/dist/jquery.min.js'); ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('frontassets/jquery/main.js'); ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('frontassets/jquery/modernizr.custom.28468.js'); ?>" type="text/javascript"></script>
-    <script src="<?php echo base_url('frontassets/jquery/owl.carousel.js'); ?>" type="text/javascript"></script>
+   
     <script src="<?php echo base_url('frontassets/jquery/jquery.js'); ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('frontassets/jquery/modernizr.custom.js'); ?>" type="text/javascript"></script>
     
@@ -42,9 +42,11 @@
     <link rel="stylesheet" href="<?php echo base_url('frontassets/less/font-awesome.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('frontassets/less/animate.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('frontassets/less/slider.css'); ?>">
+<!--
     <link rel="stylesheet" href="<?php echo base_url('frontassets/less/owl.carousel.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('frontassets/less/owl.theme.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('frontassets/less/owl.transitions.css'); ?>">
+-->
     <!--    <link rel="stylesheet" href="bower_components/less/videobox.css">-->
 
 
@@ -146,7 +148,7 @@ margin: auto;">
                 <div class="search-feed">
                     <form method="post" action="<?php echo site_url("website/getemail1");?>">
                      <input type="text" placeholder="Your Mail or mobile number" name="email">
-                        <button type="submit">send</button>
+                        <button type="submit" class="verifyorpop">send</button>
                     </form>
                 </div>
             </div>
@@ -195,4 +197,28 @@ margin: auto;">
             <h5>load more posts</h5>
         </div>
     </div>
+ <div class="container mypopup" style="display:none;">
+            <div class="row popoverlay">
+                <div class="col-md-12 popupdiv">
+                    <div class="textemail">
+                        Your email is submitted successfully
+                        <h2>Thank you</h2>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
 
+ <script>
+        $(document).ready(function() {
+             $(".verifyorpop").click(function() {
+                  $(".mypopup").fadeIn(200);
+                setTimeout(function() {
+                $(".mypopup").fadeOut(200); 
+            }, 2000);
+                 return false;
+             });
+            
+            
+        });  
+    </script>
