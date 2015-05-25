@@ -170,22 +170,58 @@ margin: auto;">
                         </div>
                     </div>
                     <div class="col-md-6 hidden-xs hidden-sm">
-                        <!--                        <img src="bower_components/img/phone.png">-->
+                        <!--                        <img src="bower_components/img/phone.png">-->                       
+<!--
+                        <div class="row">
+                <?php
+                foreach ($videos as $row)
+                {
+                ?>
+                <div class="col-md-4">
+                    <div class="feed-video text-center">
+                        <img class="feed-img img-responsive" src="<?php echo base_url('uploads/')."/".$row->image; ?>">
+                       <a  href="<?php echo site_url('website/description?id=').$row->id;?>">
+                           <div class="play"><img class="" src="<?php echo base_url('frontassets/img/video-img/play.png'); ?>"></div> 
+                        </a>
+                        <div class="feed-det">
+                            <p class="rating"><?php echo $row->rating;?></p>
+                            <h5><?php echo $row->title;?><br><span> by <?php echo $row->firstname." ".$row->lastname;?></span></h5>
+                        </div>
+                    </div>
+                    <div class="map-feed">
+                        <i class="fa fa-map-marker"><span><?php echo $row->location;?></span></i>
+                        <i class="fa fa-heart pull-right" style="margin-top:2px;"><span><?php echo $row->likes;?></span></i>
+                    </div>
+
+                </div>
+                <?php 
+                }
+                ?>
+            </div>
+-->
+                        
+                        
                         <div id="featured">
+                            <?php
+                foreach ($description as $row)
+                {
+                ?>
                             <ul class="ui-tabs-nav">
-                                <li class="ui-tabs-nav-item" id="nav-fragment-1"><a href="#fragment-1"><img src="<?php echo base_url('frontassets/img/left.png'); ?>" class="img-slide" ><span>Lorem ipsum dolor</span><p>Lorem ipsum dolor sit ametcons ectetuer adipiscing elit, sed diam nonummy nibh euismod</p></a>
+                                <li class="ui-tabs-nav-item" id="nav-fragment-1"><a href="#fragment-1"><img src="<?php echo base_url('frontassets/img/left.png'); ?>" class="img-slide" ><span><?php echo $row->title;?></span><p><?php echo $row->description;?></p></a>
                                 </li>
+<!--
                                 <li class="ui-tabs-nav-item" id="nav-fragment-2"><a href="#fragment-2"><img src="<?php echo base_url('frontassets/img/left.png'); ?>" class="img-slide"><span>Lorem ipsum dolor</span><p>Lorem ipsum dolor sit ametcons ectetuer adipiscing elit, sed diam nonummy nibh euismod</p></a>
                                 </li>
                                 <li class="ui-tabs-nav-item" id="nav-fragment-3"><a href="#fragment-3"><img src="<?php echo base_url('frontassets/img/left.png'); ?>" class="img-slide"><span>Lorem ipsum dolor</span><p>Lorem ipsum dolor sit ametcons ectetuer adipiscing elit, sed diam nonummy nibh euismod</p></a>
                                 </li>
+-->
                                 <!--	        <li class="ui-tabs-nav-item" id="nav-fragment-4"><a href="#fragment-4"><img src="images/image4-small.jpg" alt="" /><span>Create a Vintage Photograph in Photoshop</span></a></li>-->
 
                             </ul>
 
                             <!-- First Content -->
                             <div id="fragment-1" class="ui-tabs-panel" style="">
-                                <img src="<?php echo base_url('frontassets/img/phone.png'); ?>" alt="" />
+                                <img src="<?php echo base_url('uploads/')."/".$row->image; ?>" alt="" />
 
                             </div>
 
@@ -200,10 +236,9 @@ margin: auto;">
                                 <img src="<?php echo base_url('frontassets/img/phone.png'); ?>" alt="" />
 
                             </div>
-
-
-
-                        </div>
+                            <?php 
+							}
+							?>
                     </div>
 
                     <div class="col-md-6 hidden-md hidden-lg visible-xs visible-sm">

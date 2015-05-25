@@ -6,6 +6,7 @@ class Website extends CI_Controller
 	public function index( )
 	{
 		$data["page"]="index";
+		$data["description"]=$this->home_model->getdescription();
         $this->load->view("frontend",$data);
 	}
     
