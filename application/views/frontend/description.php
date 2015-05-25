@@ -277,7 +277,6 @@ margin: auto;">
     </div>
 </div>
             </div>
-<!--
             <div class="row">
                 <div class="col-md-4">
                     <div class="feed-video text-center">
@@ -329,7 +328,6 @@ margin: auto;">
                     </div>
                 </div>
             </div>
--->
 
     <div class="load-feed text-center">
     <h5>load more posts</h5>
