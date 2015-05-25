@@ -4,7 +4,7 @@ if ( !defined( 'BASEPATH' ) )
 class home_model extends CI_Model
 {
 	//video
-	public function createhome($title,$description,$image)
+	public function create($title,$description,$image)
 	{
 		$data  = array(
 			'title' => $title,
@@ -18,19 +18,23 @@ class home_model extends CI_Model
 	public function beforeedit( $id )
 	{
 		$this->db->where( 'id', $id );
-		$query=$this->db->get( 'video' )->row();
+		$query=$this->db->get( 'home' )->row();
 		return $query;
 	}
 	
-	public function edithome($title,$description)
+	public function edit($id,$title,$description,$image)
 	{
 		$data = array(
-			'title' => $title,
-			'description' => $description,
-		);
-		$this->db->where( 'id', $id );
-		$query=$this->db->update( 'home', $data );
-		
+               'title' => $title,
+               'description' => $description,
+               'image' => $image
+            );
+		print_r($data);
+		echo $id;
+		$query=$this->db->query("UPDATE `home` SET `title`='$title',`description`='$description',`image`='$image' WHERE `id`='$id'");
+		print_r($query);
+//		$this->db->where('id', $id);
+//		$this->db->update('home', $data); 	
 		return 1;
 	}
 	function deletehome($id)
@@ -38,5 +42,16 @@ class home_model extends CI_Model
 		$query=$this->db->query("DELETE FROM `home` WHERE `id`='$id'");
 		
 	}    
+	function viewhome($startfrom,$totallength)
+	{
+		$query="SELECT DISTINCT `home`.`id` as `id`,`home`.`title` as `title`,`home`.`description` as `description`,`home`.`image` as `image`
+		FROM `home`";
+		$query=$this->db->query($query)->result();
+        $return=new stdClass();
+        $return->query=$query;
+        $return->totalcount=$this->db->query("SELECT count(*) as `totalcount` FROM `home`")->row();
+        $return->totalcount=$return->totalcount->totalcount;
+		return $return;
+	}
 }
 ?>

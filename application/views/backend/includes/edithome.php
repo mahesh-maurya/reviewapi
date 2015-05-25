@@ -17,7 +17,19 @@
 						<div class="col-sm-4">
 						  <input type="text" id="normal-field" class="form-control" name="title" value="<?php echo set_value('title',$before->title);?>">
 						</div>
-					</div>		
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Description</label>
+						<div class="col-sm-4">
+							<textarea id="normal-field" row="4" column="50" class="form-control" name="description" value="<?php echo set_value('description',$before->description);?>"></textarea>
+						</div>
+					</div>	
+					<div class="form-group">
+				<label class="col-sm-2 control-label" for="normal-field">Image</label>
+				<div class="col-sm-4">
+					<input type="file" id="normal-field" class="form-control" name="image" value='<?php echo set_value('image',$before->image);?>'>
+				</div>
+			</div>	
 					
 					
 					<div class="form-group">

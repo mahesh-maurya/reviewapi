@@ -229,143 +229,197 @@ class Site extends CI_Controller
 	}
     
     
-    /// HOME START
-//    public function createuser()
-//	{
-//		$access = array("1");
-//		$this->checkaccess($access);
-//		$data[ 'page' ] = 'createhome';
-//		$data[ 'title' ] = 'Create Home';
-//		$this->load->view( 'template', $data );	
-//	}
-//	function createusersubmit()
-//	{
-//		$access = array("1");
-//		$this->checkaccess($access);
-//		$this->form_validation->set_rules('title','Title','trim');
-//		$this->form_validation->set_rules('description','Description','trim|');
-//		if($this->form_validation->run() == FALSE)	
-//		{
-//			$data['alerterror'] = validation_errors();
-//			$data['page']='createhome';
-//			$data['title']='Create Home';
-//			$this->load->view('template',$data);
-//		}
-//		else
-//		{
-//            $title=$this->input->post('title');
-//            $description=$this->input->post('description');
-//			if($this->home_model->create($title,$description)==0)
-//			$data['alerterror']="New home could not be created.";
-//			else
-//			$data['alertsuccess']="Home created Successfully.";
-//			
-//			$data['table']=$this->home_model->viewhome();
-//			$data['redirect']="site/viewhome";
-//			//$data['other']="template=$template";
-//			$this->load->view("redirect",$data);
-//		}
-//	}
-//	function viewhome()
-//	{
-//		$access = array("1");
-//		$this->checkaccess($access);
-//        $pagestart = $this->uri->segment(3, 0);        
-//        if($pagestart=="")
-//        {
-//            $pagestart=0;
-//        }
-//        $modelquery=$this->home_model->viewhome($pagestart,$this->config->item("per_page"));
-//        
-//        $config['base_url'] = site_url().'/site/viewhome/';
-//        $config['total_rows'] = $modelquery->totalcount;
-//        
-//        $this->pagination->initialize($config); 
-//		$data['table']=$modelquery->query;
-//        
-//        
-//        
-////		$data['table']=$this->user_model->viewusers();
-//		$data['page']='viewhome';
-//		$data['title']='View home';
-//		$this->load->view('template',$data);
-//	}
-//    
-//	function edithome()
-//	{
-//		$access = array("1");
-//		$this->checkaccess($access);
-//		$data['before']=$this->home_model->beforeedit($this->input->get('id'));
-//		$data['page']='edithome';
-//		$data['title']='Edit Home';
-//		$this->load->view('template',$data);
-//	}
-//	function edithomesubmit()
-//	{
-//		$access = array("1");
-//		$this->checkaccess($access);
-//		$this->form_validation->set_rules('title','Title','trim');
-//		$this->form_validation->set_rules('description','Description','trim|');
-//		if($this->form_validation->run() == FALSE)	
-//		{
-//			$data['alerterror'] = validation_errors();
-//			$data[ 'status' ] =$this->user_model->getstatusdropdown();
-//			$data['accesslevel']=$this->user_model->getaccesslevels();
-//			$data['before']=$this->user_model->beforeedit($this->input->post('id'));
-//			$data['page']='edituser';
-//			$data['page2']='block/userblock';
-//			$data['title']='Edit User';
-//			$this->load->view('template',$data);
-//		}
-//		else
-//		{
-//            $website=$this->input->post('website');
-//            $description=$this->input->post('description');
-//            $address=$this->input->post('address');
-//            $city=$this->input->post('city');
-//            $pincode=$this->input->post('pincode');
-//			$id=$this->input->post('id');
-//			$password=$this->input->post('password');
-//			$dob=$this->input->post('dob');
-//			if($dob != "")
-//			{
-//				$dob = date("Y-m-d",strtotime($dob));
-//			}
-//			$accesslevel=$this->input->post('accesslevel');
-//			$contact=$this->input->post('contact');
-//			$phoneno=$this->input->post('phoneno');
-//			$google=$this->input->post('google');
-//			$state=$this->input->post('state');
-//			$country=$this->input->post('country');
-//			$status=$this->input->post('status');
-//			$facebookuserid=$this->input->post('facebookuserid');
-//			$fname=$this->input->post('fname');
-//			$lname=$this->input->post('lname');
-//			if($this->user_model->edit($id,$fname,$lname,$dob,$password,$accesslevel,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country)==0)
-//			$data['alerterror']="User Editing was unsuccesful";
-//			else
-//			$data['alertsuccess']="User edited Successfully.";
-//			
-//			$data['redirect']="site/viewusers";
-//			//$data['other']="template=$template";
-//			$this->load->view("redirect",$data);
-//			
-//		}
-//	}
-//	
-//	function deleteuser()
-//	{
-//		$access = array("1");
-//		$this->checkaccess($access);
-//		$this->user_model->deleteuser($this->input->get('id'));
+   // HOME START
+    public function createhome()
+	{
+		$access = array("1");
+		$this->checkaccess($access);
+		$data[ 'page' ] = 'createhome';
+		$data[ 'title' ] = 'Create Home';
+		$this->load->view( 'template', $data );	
+	}
+	function createhomesubmit()
+	{
+		$access = array("1");
+		$this->checkaccess($access);
+		$this->form_validation->set_rules('title','Title','trim');
+		$this->form_validation->set_rules('description','Description','trim|');
+		if($this->form_validation->run() == FALSE)	
+		{
+			$data['alerterror'] = validation_errors();
+			$data['page']='createhome';
+			$data['title']='Create Home';
+			$this->load->view('template',$data);
+		}
+		else
+		{
+            $title=$this->input->post('title');
+            $description=$this->input->post('description');
+			 $config['upload_path'] = './uploads/';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$this->load->library('upload', $config);
+			$filename="image";
+			$image="";
+			if (  $this->upload->do_upload($filename))
+			{
+				$uploaddata = $this->upload->data();
+				$image=$uploaddata['file_name'];         
+                $config_r['source_image']   = './uploads/' . $uploaddata['file_name'];
+                $config_r['maintain_ratio'] = TRUE;
+                $config_t['create_thumb'] = FALSE;///add this
+                $config_r['width']   = 800;
+                $config_r['height'] = 800;
+                $config_r['quality']    = 100;
+                //end of configs
+
+                $this->load->library('image_lib', $config_r); 
+                $this->image_lib->initialize($config_r);
+                if(!$this->image_lib->resize())
+                {
+                    echo "Failed." . $this->image_lib->display_errors();
+                    //return false;
+                }  
+                else
+                {
+                    //print_r($this->image_lib->dest_image);
+                    //dest_image
+                    $image=$this->image_lib->dest_image;
+                    //return false;
+				}
+			} 
+			if($this->home_model->create($title,$description,$image)==0)
+			$data['alerterror']="New home could not be created.";
+			else
+			$data['alertsuccess']="Home created Successfully.";
+			
+			$data['table']=$this->home_model->viewhome();
+			$data['redirect']="site/viewhome";
+			//$data['other']="template=$template";
+			$this->load->view("redirect",$data);
+		}
+	}
+	function viewhome()
+	{
+		$access = array("1");
+		$this->checkaccess($access);
+        $pagestart = $this->uri->segment(3, 0);        
+        if($pagestart=="")
+        {
+            $pagestart=0;
+        }
+        $modelquery=$this->home_model->viewhome($pagestart,$this->config->item("per_page"));
+        
+        $config['base_url'] = site_url().'/site/viewhome/';
+        $config['total_rows'] = $modelquery->totalcount;
+        
+        $this->pagination->initialize($config); 
+		$data['table']=$modelquery->query;
+        
+        
+        
 //		$data['table']=$this->user_model->viewusers();
-//		$data['alertsuccess']="User Deleted Successfully";
-//		$data['page']='viewusers';
-//		$data['title']='View Users';
-//		$this->load->view('template',$data);
-//	}
-//    
-//    
+		$data['page']='viewhome';
+		$data['title']='View home';
+		$this->load->view('template',$data);
+	}
+    
+	function edithome()
+	{
+		$access = array("1");
+		$this->checkaccess($access);
+		$data['before']=$this->home_model->beforeedit($this->input->get('id'));
+		$data['page']='edithome';
+		$data['title']='Edit Home';
+		$this->load->view('template',$data);
+	}
+	function edithomesubmit()
+	{
+		$access = array("1");
+		$this->checkaccess($access);
+		$this->form_validation->set_rules('title','Title','trim');
+		$this->form_validation->set_rules('description','Description','trim|');
+		if($this->form_validation->run() == FALSE)	
+		{
+			
+			$data['alerterror'] = validation_errors();
+			$data['before']=$this->home_model->beforeedit($this->input->post('id'));
+			$data['page']='edithome';
+			$data['title']='Edit Home';
+			$this->load->view('template',$data);
+		}
+		else
+		{
+			
+			 $id=$this->input->get_post('id');
+            $title=$this->input->post('title');
+            $description=$this->input->post('description');
+            $config['upload_path'] = './uploads/';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$this->load->library('upload', $config);
+			$filename="image";
+			$image="";
+			if (  $this->upload->do_upload($filename))
+			{
+				$uploaddata = $this->upload->data();
+				$image=$uploaddata['file_name'];
+                
+                $config_r['source_image']   = './uploads/' . $uploaddata['file_name'];
+                $config_r['maintain_ratio'] = TRUE;
+                $config_t['create_thumb'] = FALSE;///add this
+                $config_r['width']   = 800;
+                $config_r['height'] = 800;
+                $config_r['quality']    = 100;
+                //end of configs
+
+                $this->load->library('image_lib', $config_r); 
+                $this->image_lib->initialize($config_r);
+                if(!$this->image_lib->resize())
+                {
+                    echo "Failed." . $this->image_lib->display_errors();
+                    //return false;
+                }  
+                else
+                {
+                    //print_r($this->image_lib->dest_image);
+                    //dest_image
+                    $image=$this->image_lib->dest_image;
+                    //return false;
+                }
+                
+			}
+            
+            if($image=="")
+            {
+            $image=$this->user_model->getimagebyid($id);
+               // print_r($image);
+                $image=$image;
+            }
+            
+			if($this->home_model->edit($id,$title,$description,$image)==0)
+			$data['alerterror']="Home Editing was unsuccesful";
+			else
+			$data['alertsuccess']="Home edited Successfully.";
+			
+			$data['redirect']="site/viewhome";
+			//$data['other']="template=$template";
+			$this->load->view("redirect",$data);
+			
+		}
+	}
+	
+	function deletehome()
+	{
+		$access = array("1");
+		$this->checkaccess($access);
+		$this->home_model->deletehome($this->input->get('id'));
+		$data['table']=$this->user_model->viewusers();
+		$data['alertsuccess']="Home Deleted Successfully";
+		$data['page']='viewhome';
+		$data['title']='View Home';
+		$this->load->view('template',$data);
+	}
+    
+    
     ////HOME END
 	function changeuserstatus()
 	{

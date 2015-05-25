@@ -27,23 +27,14 @@
 						<!--<td><?php echo $row->id;?></td>-->
 						<td><?php echo $row->title;?></td>
 						<td><?php echo $row->description;?></td>
-						<td><?php echo $row->contact;?></td>
-						<td><?php if($row->status==1) { ?>
-							<a href="<?php echo site_url('site/changeuserstatus?id=').$row->id; ?>" class="label label-success label-mini">Enable</a>
-						<?php } else { ?>
-							<a href="<?php echo site_url('site/changeuserstatus?id=').$row->id; ?>" class="label label-danger label-mini">Disable</a>
-						<?php } ?>
-						</td>
+						<td><?php echo $row->image;?></td>
 						<td>
-							<a href="<?php echo site_url('site/edituser?id=').$row->id;?>" class="btn btn-primary btn-xs">
+							<a href="<?php echo site_url('site/edithome?id=').$row->id;?>" class="btn btn-primary btn-xs">
 								<i class="icon-pencil"></i>
 							</a>
-							<?php if($row->status==0) { ?>
-							<a href="<?php echo site_url('site/deleteuser?id=').$row->id; ?>" class="btn btn-danger btn-xs">
+							<a href="<?php echo site_url('site/deletehome?id=').$row->id; ?>" class="btn btn-danger btn-xs">
 								<i class="icon-trash "></i>
 							</a> 
-							<?php } ?>
-						
 						</td>
 					</tr>
 					<?php } ?>
