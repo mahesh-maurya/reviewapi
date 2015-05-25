@@ -151,7 +151,6 @@ margin: auto;">
                                 <p>Send the link to your apple phone</p>
                                 <form method="post" action="<?php echo site_url("website/getemail");?>">
                                     <input type="text" placeholder="Your Mail or mobile number " name="email">
-                                    <!--                               <a href="<?php echo base_url('applicaton/views/frontend/popup.html'); ?>" class="various" data-fancybox-type="iframe"> <button type="submit">send</button></a>-->
                                     <button type="submit" class="verifyorpop">send</button>
                                 </form>
                             </div>
