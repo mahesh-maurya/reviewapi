@@ -149,10 +149,10 @@ margin: auto;">
                             </div>
                             <div class="search-tag">
                                 <p>Send the link to your apple phone</p>
-                                <form method="post" action="<?php echo site_url(" website/getemail ");?>">
+                                <form method="post" action="<?php echo site_url("website/getemail");?>">
                                     <input type="text" placeholder="Your Mail or mobile number " name="email">
                                     <!--                               <a href="<?php echo base_url('applicaton/views/frontend/popup.html'); ?>" class="various" data-fancybox-type="iframe"> <button type="submit">send</button></a>-->
-                                    <button type="submit">send</button>
+                                    <button type="submit" class="verifyorpop">send</button>
                                 </form>
                             </div>
                             <div class="soci-tag">
@@ -315,7 +315,7 @@ margin: auto;">
 
         </div>
         </div>
-        <div class="container">
+        <div class="container mypopup" style="display:none;">
             <div class="row popoverlay">
                 <div class="col-md-12 popupdiv">
                     <div class="textemail">
@@ -342,3 +342,17 @@ margin: auto;">
                 });
             });
         </script>-->
+        <script>
+        $(document).ready(function() {
+             $(".verifyorpop").click(function() {
+                  $(".mypopup").fadeIn(200);
+                setTimeout(function() {
+                $(".mypopup").fadeOut(200); 
+            }, 2000);
+                 return false;
+             });
+            
+            
+        });  
+    </script>
+       
