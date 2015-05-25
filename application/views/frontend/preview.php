@@ -145,7 +145,7 @@ margin: auto;">
                 <div class="search-feed">
                     <form method="post" action="<?php echo site_url("website/getemail2");?>">
                      <input type="text" name="email" placeholder="Your Mail or mobile number ">
-                        <button type="submit">send</button>
+                        <button type="submit" class="verifyorpop">send</button>
                         </form>
                 </div>
             </div>
@@ -198,4 +198,29 @@ margin: auto;">
             <h5>load more posts</h5>
         </div>
     </div>
+    <div class="container mypopup" style="display:none;">
+            <div class="row popoverlay">
+                <div class="col-md-12 popupdiv">
+                    <div class="textemail">
+                        Your email is submitted successfully
+                        <h2>Thank you</h2>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+ <script>
+        $(document).ready(function() {
+             $(".verifyorpop").click(function() {
+                  $(".mypopup").fadeIn(200);
+                setTimeout(function() {
+                $(".mypopup").fadeOut(200); 
+            }, 2000);
+                 return false;
+             });
+            
+            
+        });  
+    </script>
 
