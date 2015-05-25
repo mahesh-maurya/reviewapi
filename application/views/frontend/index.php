@@ -11,19 +11,27 @@
     <link rel="stylesheet" href="<?php echo base_url('frontassets/bootstrap/dist/css/bootstrap.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('frontassets/bootstrap/dist/css/bootstrap-theme.min.css'); ?>">
     <link rel="stylesheet/less" href="<?php echo base_url('frontassets/less/styles.less'); ?>">
-    
+
+
     <script src="<?php echo base_url('frontassets/jquery/dist/jquery.min.js'); ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('frontassets/less/dist/less.min.js'); ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('frontassets/less/dist/less.js'); ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('frontassets/jquery/wow.js'); ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('frontassets/jquery/wow.min.js'); ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('frontassets/js/jquery-1.10.1.min.js/');?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('frontassets/js/jquery.mousewheel-3.0.6.pack.js/');?>" type="text/javascript"></script>
+
+
+    <!-- Add fancyBox -->
+    <link rel="stylesheet/less" href="<? echo base_url('frontassets/less/jquery.fancybox.css');?>" type="text/css" media="screen">
+    <script src="<?php echo base_url('frontassets/js/jquery.fancybox.pack.js/');?>" type="text/javascript"></script>
 
     <script src="<?php echo base_url('frontassets/jquery/main.js'); ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('frontassets/jquery/jquery-ui-1.9.0.custom.min.js'); ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('frontassets/jquery/pgwslider.js'); ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('frontassets/jquery/hamburger-menu.js'); ?>" type="text/javascript"></script>
-    
-<!--
+
+    <!--
     <script src="bower_components/jquery/modernizr.custom.js"></script>
     <script src="bower_components/jquery/jquery.cslider.js"></script>
     <script src="bower_components/jquery/hamburger-menu.js"></script>
@@ -33,7 +41,7 @@
     <link rel="stylesheet" href="<?php echo base_url('frontassets/less/font-awesome.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('frontassets/less/animate.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('frontassets/less/slider.css'); ?>">
-<!--    <link rel="stylesheet" href="<?php echo base_url('frontassets/less/styles.css'); ?>">-->
+    <!--    <link rel="stylesheet" href="<?php echo base_url('frontassets/less/styles.css'); ?>">-->
     <link rel="stylesheet" href="<?php echo base_url('frontassets/less/pgwslider.css'); ?>">
 
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -43,10 +51,14 @@
         
     <![endif]-->
     <script type="text/javascript">
-	$(document).ready(function(){
-		$("#featured").tabs({fx:{opacity: "toggle"}}).tabs("rotate", 5000, true);
-	});
-</script>
+        $(document).ready(function () {
+            $("#featured").tabs({
+                fx: {
+                    opacity: "toggle"
+                }
+            }).tabs("rotate", 5000, true);
+        });
+    </script>
 </head>
 
 <body>
@@ -104,7 +116,7 @@
                         <div class="col-xs-12" style="text-align: center;
 margin: auto;">
 
-                            <ul >
+                            <ul>
                                 <a href="feed.html">
                                     <li style="list-style:none;padding-left:0px">Feed</li>
                                 </a>
@@ -126,8 +138,8 @@ margin: auto;">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="img-logo">
-                               <img src="<?php echo base_url('frontassets/img/icon.png'); ?>">
-<!--                            <img src="bower_components/img/icon.png">-->
+                            <img src="<?php echo base_url('frontassets/img/icon.png'); ?>">
+                            <!--                            <img src="bower_components/img/icon.png">-->
                             <h3>discover and </h3>
                             <h3>explore</h3>
                             <h3> video reviews</h3>
@@ -136,10 +148,11 @@ margin: auto;">
                                 <p>product & services.</p>
                             </div>
                             <div class="search-tag">
-                                <p>Send the link to your phone</p>
-                                <form method="post" action ="<?php echo site_url("website/getemail");?>">
-                                <input type="text" placeholder="Your Mail or mobile number " name="email">
-                                <button type="submit">send</button>
+                                <p>Send the link to your apple phone</p>
+                                <form method="post" action="<?php echo site_url(" website/getemail ");?>">
+                                    <input type="text" placeholder="Your Mail or mobile number " name="email">
+                                    <!--                               <a href="<?php echo base_url('applicaton/views/frontend/popup.html'); ?>" class="various" data-fancybox-type="iframe"> <button type="submit">send</button></a>-->
+                                    <button type="submit">send</button>
                                 </form>
                             </div>
                             <div class="soci-tag">
@@ -159,36 +172,39 @@ margin: auto;">
                     </div>
                     <div class="col-md-6 hidden-xs hidden-sm">
                         <!--                        <img src="bower_components/img/phone.png">-->
-		<div id="featured" >
-		  <ul class="ui-tabs-nav">
-	        <li class="ui-tabs-nav-item" id="nav-fragment-1"><a href="#fragment-1"><img src="<?php echo base_url('frontassets/img/left.png'); ?>" class="img-slide" ><span>Lorem ipsum dolor</span><p>Lorem ipsum dolor sit ametcons ectetuer adipiscing elit, sed diam nonummy nibh euismod</p></a></li>
-	        <li class="ui-tabs-nav-item" id="nav-fragment-2"><a href="#fragment-2"><img src="<?php echo base_url('frontassets/img/left.png'); ?>" class="img-slide"><span>Lorem ipsum dolor</span><p>Lorem ipsum dolor sit ametcons ectetuer adipiscing elit, sed diam nonummy nibh euismod</p></a></li>
-	         <li class="ui-tabs-nav-item" id="nav-fragment-3"><a href="#fragment-3"><img src="<?php echo base_url('frontassets/img/left.png'); ?>" class="img-slide"><span>Lorem ipsum dolor</span><p>Lorem ipsum dolor sit ametcons ectetuer adipiscing elit, sed diam nonummy nibh euismod</p></a></li>
-<!--	        <li class="ui-tabs-nav-item" id="nav-fragment-4"><a href="#fragment-4"><img src="images/image4-small.jpg" alt="" /><span>Create a Vintage Photograph in Photoshop</span></a></li>-->
-			
-	      </ul>
+                        <div id="featured">
+                            <ul class="ui-tabs-nav">
+                                <li class="ui-tabs-nav-item" id="nav-fragment-1"><a href="#fragment-1"><img src="<?php echo base_url('frontassets/img/left.png'); ?>" class="img-slide" ><span>Lorem ipsum dolor</span><p>Lorem ipsum dolor sit ametcons ectetuer adipiscing elit, sed diam nonummy nibh euismod</p></a>
+                                </li>
+                                <li class="ui-tabs-nav-item" id="nav-fragment-2"><a href="#fragment-2"><img src="<?php echo base_url('frontassets/img/left.png'); ?>" class="img-slide"><span>Lorem ipsum dolor</span><p>Lorem ipsum dolor sit ametcons ectetuer adipiscing elit, sed diam nonummy nibh euismod</p></a>
+                                </li>
+                                <li class="ui-tabs-nav-item" id="nav-fragment-3"><a href="#fragment-3"><img src="<?php echo base_url('frontassets/img/left.png'); ?>" class="img-slide"><span>Lorem ipsum dolor</span><p>Lorem ipsum dolor sit ametcons ectetuer adipiscing elit, sed diam nonummy nibh euismod</p></a>
+                                </li>
+                                <!--	        <li class="ui-tabs-nav-item" id="nav-fragment-4"><a href="#fragment-4"><img src="images/image4-small.jpg" alt="" /><span>Create a Vintage Photograph in Photoshop</span></a></li>-->
 
-	    <!-- First Content -->
-	    <div id="fragment-1" class="ui-tabs-panel" style="">
-			<img src="<?php echo base_url('frontassets/img/phone.png'); ?>" alt="" />
-			
-	    </div>
+                            </ul>
 
-	    <!-- Second Content -->
-	    <div id="fragment-2" class="ui-tabs-panel ui-tabs-hide" style="">
-			<img src="<?php echo base_url('frontassets/img/phone.png'); ?>" alt="" />
-			
-	    </div>
+                            <!-- First Content -->
+                            <div id="fragment-1" class="ui-tabs-panel" style="">
+                                <img src="<?php echo base_url('frontassets/img/phone.png'); ?>" alt="" />
 
-	    <!-- Third Content -->
-	    <div id="fragment-3" class="ui-tabs-panel ui-tabs-hide" style="">
-			<img src="<?php echo base_url('frontassets/img/phone.png'); ?>" alt="" />
-			
-	    </div>
-		
-		
+                            </div>
 
-		</div>
+                            <!-- Second Content -->
+                            <div id="fragment-2" class="ui-tabs-panel ui-tabs-hide" style="">
+                                <img src="<?php echo base_url('frontassets/img/phone.png'); ?>" alt="" />
+
+                            </div>
+
+                            <!-- Third Content -->
+                            <div id="fragment-3" class="ui-tabs-panel ui-tabs-hide" style="">
+                                <img src="<?php echo base_url('frontassets/img/phone.png'); ?>" alt="" />
+
+                            </div>
+
+
+
+                        </div>
                     </div>
 
                     <div class="col-md-6 hidden-md hidden-lg visible-xs visible-sm">
@@ -280,13 +296,13 @@ margin: auto;">
 
 
                 </div>
-                <div class="hidden-lg hidden-md">               
-                 <div class="btn-mob">
-                <img src="<?php echo base_url('frontassets/img/circle.png'); ?>">
-                </div>
-                <div class="btn-pause">
-                    <img class="pull-right share " src="<?php echo base_url('frontassets/img/share.png'); ?>">
-                </div>
+                <div class="hidden-lg hidden-md">
+                    <div class="btn-mob">
+                        <img src="<?php echo base_url('frontassets/img/circle.png'); ?>">
+                    </div>
+                    <div class="btn-pause">
+                        <img class="pull-right share " src="<?php echo base_url('frontassets/img/share.png'); ?>">
+                    </div>
                 </div>
 
                 <!--
@@ -299,4 +315,30 @@ margin: auto;">
 
         </div>
         </div>
-        
+        <div class="container">
+            <div class="row popoverlay">
+                <div class="col-md-12 popupdiv">
+                    <div class="textemail">
+                        Your email is submitted successfully
+                        <h2>Thank you</h2>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!--
+        <script>
+            $(document).ready(function () {
+                $(".various").fancybox({
+                    maxWidth: 800,
+                    maxHeight: 600,
+                    fitToView: false,
+                    width: '70%',
+                    height: '70%',
+                    autoSize: false,
+                    closeClick: false,
+                    openEffect: 'none',
+                    closeEffect: 'none'
+                });
+            });
+        </script>-->
