@@ -7,7 +7,9 @@ class Website extends CI_Controller
 	{
 		$data["page"]="index";
 		$data["description"]=$this->home_model->getdescription();
-        $this->load->view("frontend",$data);
+		$description=$data["description"];
+		print_r($description);
+//        $this->load->view("frontend",$data);
 	}
     
 	public function explore( )

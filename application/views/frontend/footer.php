@@ -151,6 +151,7 @@
 
     <script src="<?php echo base_url('frontassets/jquery/classie.js'); ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('frontassets/jquery/gnmenu.js'); ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('frontassets/bootstrap/dist/js/bootstrap.min.js'); ?>" type="text/javascript"></script>
     
 <!--    description and explore script-->
     <script>
