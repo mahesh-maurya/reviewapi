@@ -306,9 +306,12 @@ margin: auto;">
         <div class="container mypopup" style="display:none;">
             <div class="row popoverlay">
                 <div class="col-md-12 popupdiv">
-                    <div class="textemail">
+                    <div class="textemail" style="display:none;">
                         Your email is submitted successfully
                         <h2>Thank you</h2>
+                    </div>
+                    <div class="textemail">
+                        <h3 style="margin:10px 0 0 0;">Please enter your email.</h3>
                     </div>
                     
                 </div>
