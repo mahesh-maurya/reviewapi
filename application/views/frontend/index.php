@@ -190,7 +190,7 @@ margin: auto;">
 
                             <!-- First Content -->
                             <div id="fragment-1" class="ui-tabs-panel" style="">
-                                <img src="<?php echo base_url('uploads/')."/".$row->image; ?>" alt="" class="pj img-responsive">
+                                <img src="<?php echo base_url('uploads/')."/".$image; ?>" alt="" class="pj img-responsive">
 
                             </div>
                     </div>
