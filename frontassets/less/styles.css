@@ -1141,6 +1141,8 @@ body a:hover {
   position: fixed;
   top: 30%;
   left: 50%;
+  font-weight: 200;
+  text-transform: capitalize;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
