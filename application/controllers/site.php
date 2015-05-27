@@ -328,6 +328,7 @@ class Site extends CI_Controller
 		$access = array("1");
 		$this->checkaccess($access);
 		$data['before']=$this->home_model->beforeedit($this->input->get('id'));
+		$before=$data['before'];
 		$data['page']='edithome';
 		$data['title']='Edit Home';
 		$this->load->view('template',$data);
@@ -402,7 +403,7 @@ class Site extends CI_Controller
 			$data['alertsuccess']="Home edited Successfully.";			
 			$data['redirect']="site/viewhome";
 			//$data['other']="template=$template";
-			$this->load->view("redirect",$data);
+//			$this->load->view("redirect",$data);
 			
 		}
 	}
