@@ -474,6 +474,10 @@ INNER JOIN  `accesslevel` ON  `user`.`accesslevel` =  `accesslevel`.`id` WHERE `
    'email' => $email ,
 );
 $this->db->insert('user', $data); 
+		$query=$this->db->query("SELECT `id` FROM `user`
+		WHERE `email`='$email'")->row();
+		$id=$query->id;
+		return $id;
     }
 }
 ?>

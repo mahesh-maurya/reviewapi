@@ -41,22 +41,22 @@ class Website extends CI_Controller
         $this->load->view("frontend",$data);
 	}
     public function getemail(){
-    $email=$this->input->get_post('email');
-    $this->user_model->getemail($email);
-        $data["redirect"]="website/index";
-        $this->load->view("redirect",$data);
+		$email=$this->input->get_post('email');
+		$id=$this->user_model->getemail($email);
+		$data["message"]=$id;
+        $this->load->view("json",$data);
     }
     public function getemail1(){
     $email=$this->input->get_post('email');
-    $this->user_model->getemail($email);
-        $data["redirect"]="website/feed";
-        $this->load->view("redirect",$data);
+    $id=$this->user_model->getemail($email);
+       $data["message"]=$id;
+        $this->load->view("json",$data);
     }
         public function getemail2(){
     $email=$this->input->get_post('email');
-    $this->user_model->getemail($email);
-        $data["redirect"]="website/preview";
-        $this->load->view("redirect",$data);
+    $id=$this->user_model->getemail($email);
+      $data["message"]=$id;
+        $this->load->view("json",$data);
     }
 
 }

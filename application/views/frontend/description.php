@@ -108,23 +108,23 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-4 col-md-2 mob-img">
-                            <a href="index.html" class="hidden-xs hidden-sm">
+                            <a href="<?php echo site_url('website/index');?>" class="hidden-xs hidden-sm">
                                 <img src="<?php echo base_url('frontassets/img/logo.png'); ?>">
                             </a>
                             <p class="visible-xs visible-sm pos-img"><a href="#" class="col"> login </a><i class="fa fa-caret-right"></i>
                         </div>
                         <div class="col-xs-5 col-md-4 text-center">
-                            <a href="index.html" class="hidden-md hidden-lg text-center ">
+                            <a href="<?php echo site_url('website/index');?>" class="hidden-md hidden-lg text-center ">
                                 <img class="text-center img-log" src="<?php echo base_url('frontassets/img/logo.png'); ?>">
                             </a>
                             <ul class="hidden-xs hidden-sm">
-                                <a href="feed.html" class="active">
+                                <a href="<?php echo site_url('website/feed');?>" class="active">
                                     <li style="list-style:none;">Feed</li>
                                 </a>
-                                <a href="preview.html">
+                                <a href="<?php echo site_url('website/preview');?>">
                                     <li>Preview</li>
                                 </a>
-                                <a href="explore.html">
+                                <a href="<?php echo site_url('website/explore');?>">
                                     <li>Explore</li>
                                 </a>
                                 <a href="#">
@@ -132,7 +132,7 @@
                                 </a>
                             </ul>
                         </div>
-                        <div class="col-xs-2 col-md-2 hidden-xs hidden-sm"></div>
+                         <div class="col-xs-2 col-md-2 hidden-xs hidden-sm"></div>
 
                         <div class="col-xs-3 col-md-1">
                             <p class="hidden-xs hidden-sm"><a href="#" class="col"> login </a><i class="fa fa-caret-right"></i>

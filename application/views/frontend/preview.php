@@ -143,10 +143,9 @@ margin: auto;">
                 <h4>Discover and explore video reviews</h4>
                 <i>Reviu helps you find best local business, product & services.</i>
                 <div class="search-feed">
-                    <form method="post" action="<?php echo site_url("website/getemail2");?>">
-                     <input type="text" name="email" placeholder="Your Mail or mobile number ">
+                     <input type="text" class="linkemail" placeholder="Your Mail or mobile number ">
                         <button type="submit" class="verifyorpop">send</button>
-                        </form>
+                        
                 </div>
             </div>
 </div>
@@ -198,6 +197,49 @@ margin: auto;">
             <h5>load more posts</h5>
         </div>
     </div>
+      <div class="container mypopup" style="display:none;">
+			<div class="row popoverlay">
+				<div class="col-md-12 popupdiv">
+					<div class="textemail" style="display:none;">
+						Your email is submitted successfully
+						<h2>Thank you</h2>
+					</div>
+					<div class="textemail">
+						<h5 class="emailtext">Please enter your email.</h5>
+					</div>
+
+				</div>
+			</div>
+		</div>
+    	<script>
+			$(document).ready(function () {
+
+				$(".verifyorpop").click(function () {
+					var email = $(".linkemail").val();
+					if(!email)
+					{
+						$(".emailtext").text("Please enter your email.");
+						$(".mypopup").fadeIn(200);
+						setTimeout(function () {
+							$(".mypopup").fadeOut(200);
+						}, 2000);
+					}
+					else
+					{
+						$.get("<?php echo site_url("website/getemail1");?>",{email:email}, function (data) {
+							$(".emailtext").text("Thank You for your submission.");
+							$(".mypopup").fadeIn(200);
+							$(".linkemail").val("");
+							setTimeout(function () {
+								$(".mypopup").fadeOut(200);
+							}, 2000);
+						});
+					}
+				});
+
+			});
+		</script>
+<!--
     <div class="container mypopup" style="display:none;">
             <div class="row popoverlay">
                 <div class="col-md-12 popupdiv">
@@ -226,4 +268,5 @@ margin: auto;">
             
         });  
     </script>
+-->
 
