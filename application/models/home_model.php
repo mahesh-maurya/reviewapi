@@ -30,17 +30,8 @@ FROM `home`")->result();
 	
 	public function edit($id,$title,$description,$image)
 	{
-		$data = array(
-               'title' => $title,
-               'description' => $description,
-               'image' => $image
-            );
-		print_r($data);
-		echo $id;
+		
 		$query=$this->db->query("UPDATE `home` SET `title`='$title',`description`='$description',`image`='$image' WHERE `id`='$id'");
-		print_r($query);
-//		$this->db->where('id', $id);
-//		$this->db->update('home', $data); 	
 		return 1;
 	}
 	function deletehome($id)

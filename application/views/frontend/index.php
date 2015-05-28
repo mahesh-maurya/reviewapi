@@ -202,28 +202,25 @@ margin: auto;">
 								</li>
 								<li class="ui-tabs-nav-item" id="nav-fragment-3"><a href="#fragment-3"><img src="<?php echo base_url('frontassets/img/left.png'); ?>" class="img-slide"><span><?php echo $description[2]->title;?></span><p><?php echo $description[2]->description;?></p></a>
 								</li>
-
-
-
 							</ul>
-							-->
-
+							
+						
 							<!-- First Content -->
 							<div id="fragment-1" class="ui-tabs-panel" style="">
-								<img src="<?php echo base_url('uploads/')." / ".$description[0]->image;?>" alt="" class="pj img-responsive">
+								<img src="<?php echo base_url('uploads/')."/".$description[0]->image;?>" alt="" class="pj img-responsive">
 
 							</div>
 
 							<!-- Second Content -->
 							<div id="fragment-2" class="ui-tabs-panel ui-tabs-hide" style="">
-								<img src="<?php echo base_url('uploads/')." / ".$description[1]->image;?>" alt="" class="pj img-responsive" />
+								<img src="<?php echo base_url('uploads/')."/".$description[1]->image;?>" alt="" class="pj img-responsive"/>
 
 							</div>
 
 							<!-- Third Content -->
 
 							<div id="fragment-3" class="ui-tabs-panel ui-tabs-hide" style="">
-								<img src="<?php echo base_url('uploads/')." / ".$description[2]->image;?>" alt="" class="pj img-responsive" />
+								<img src="<?php echo base_url('uploads/')."/".$description[2]->image;?>" alt="" class="pj img-responsive"/>
 
 							</div>
 						</div>

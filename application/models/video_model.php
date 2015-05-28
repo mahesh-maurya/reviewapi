@@ -174,8 +174,26 @@ LEFT OUTER JOIN `category` ON `video`.`category`=`category`.`name` WHERE `video`
 		ORDER BY `video`.`id` DESC ")->row();
 		return $query;
 	}
-    
-    
-    
+	function getrelatedvideosid($id){
+	$query=$this->db->query("SELECT `relatedvideoid` FROM `relatedvideos` WHERE `videoid`='$id'");
+		 if($query->num_rows() > 0) {
+        $ids = $query->result();
+    }
+		return $ids;	
+	}
+	public function getrelatedvideos($multiplevideos){
+		$returnarray=array();
+		foreach ($multiplevideos as $row){
+		$query=$this->db->query("SELECT `video`.`id`,`video`.`image`,`video`.`likes`,`video`.`views`, `video`.`user`, `video`.`title`, `video`.`description`,`video`. `location`,`video`. `lat`,`video`. `long`, `video`.`timestamp`, `video`.`rating`, `video`.`videourl`, `video`.`status`, `video`.`category`,`user`.`firstname`,`user`.`lastname`,`user`.`contact` AS `usercontact` 
+FROM `video`
+LEFT OUTER JOIN `user` ON `video`.`user`=`user`.`id` 
+LEFT OUTER JOIN `category` ON `video`.`category`=`category`.`name` WHERE `video`.`id`='$row->relatedvideoid' 
+		ORDER BY `video`.`id` DESC ")->row();
+			
+			array_push($returnarray,$query);
+			
+		}
+		return $returnarray;
+		 }   
 }
 ?>

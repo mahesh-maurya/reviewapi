@@ -167,11 +167,12 @@ margin: auto;">
                 </div>
             </div>
             <div class="row">
-               <?php
+                <?php
                 foreach ($videos as $row)
                 {
                 ?>
                 <div class="col-md-4">
+                  
                     <div class="feed-video text-center">
                         <img class="feed-img img-responsive" src="<?php echo base_url('uploads/')."/".$row->image; ?>">
                         <a  href="<?php echo site_url('website/description?id=').$row->id;?>">
@@ -183,7 +184,7 @@ margin: auto;">
                         </div>
                     </div>
                     <div class="map-feed">
-                        <i class="fa fa-map-marker"><span>name</span></i>
+                        <i class="fa fa-map-marker"><span><?php echo $row->location;?></span></i>
                         <i class="fa fa-heart pull-right" style="margin-top:2px;"><span><?php echo $row->likes;?></span></i>
                     </div>
 
@@ -211,6 +212,7 @@ margin: auto;">
 				</div>
 			</div>
 		</div>
+   	</div>
     	<script>
 			$(document).ready(function () {
 

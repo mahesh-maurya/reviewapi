@@ -29,7 +29,10 @@ class Website extends CI_Controller
         $id=$this->input->get('id');
         $data["video"]=$this->video_model->getvideobyid($id);
         $data["videotags"]=$this->video_model->getvideotagsbyvideo($id);
-//        print_r($data);
+        $data["relatedvideosid"]=$this->video_model->getrelatedvideosid($id);
+		$multiplevideos=$data["relatedvideosid"];
+        $data["relatedvideos"]=$this->video_model->getrelatedvideos($multiplevideos);
+		$relatedvideos=$data["relatedvideos"];
 		$data["page"]="description";
         $this->load->view("frontend",$data);
 	}

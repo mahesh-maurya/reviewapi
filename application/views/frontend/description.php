@@ -278,23 +278,31 @@ margin: auto;">
 </div>
             </div>
             <div class="row">
+               <?php
+                foreach ($relatedvideos as $row)
+                {
+                ?>
                 <div class="col-md-4">
                     <div class="feed-video text-center">
-                        <img class="feed-img img-responsive" src="bower_components/img/video-img/first.png">
-                        <a  href="description.html">
-                           <div class="play"><img class="" src="bower_components/img/video-img/play.png"></div> 
+                        <img class="feed-img img-responsive" src="<?php echo base_url('uploads/')."/".$row->image; ?>">
+                        <a  href="<?php echo site_url('website/description?id=').$row->id;?>">
+                           <div class="play"><img class="" src="<?php echo base_url('frontassets/img/video-img/play.png'); ?>"></div> 
                         </a>
                         <div class="feed-det">
-                            <p class="rating">4.5</p>
-                            <h5>disney's frozen <br><span> by shalini mehta</span></h5>
+                            <p class="rating"><?php echo $row->rating.".0";?></p>
+                            <h5><?php echo $row->title;?><br><span> by <?php echo $row->firstname." ".$row->lastname;?></span></h5>
                         </div>
                     </div>
                     <div class="map-feed">
                         <i class="fa fa-map-marker"><span>name</span></i>
-                        <i class="fa fa-heart pull-right" style="margin-top:2px;"><span>400 likes</span></i>
+                        <i class="fa fa-heart pull-right" style="margin-top:2px;"><span><?php echo $row->likes;?></span></i>
                     </div>
-
-                </div>
+  				 <?php 
+                }
+                ?>
+                </div>                
+                
+<!--
                 <div class="col-md-4">
                     <div class="feed-video text-center">
                         <img class="feed-img img-responsive" src="bower_components/img/video-img/second.png">
@@ -326,10 +334,12 @@ margin: auto;">
                         <i class="fa fa-map-marker"><span>name</span></i>
                         <i class="fa fa-heart pull-right" style="margin-top:2px;"><span>400 likes</span></i>
                     </div>
+-->
                 </div>
+              
             </div>
-
     <div class="load-feed text-center">
     <h5>load more posts</h5>
 </div>
+   
 </div>

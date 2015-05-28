@@ -402,8 +402,8 @@ class Site extends CI_Controller
 			else
 			$data['alertsuccess']="Home edited Successfully.";			
 			$data['redirect']="site/viewhome";
-			//$data['other']="template=$template";
-//			$this->load->view("redirect",$data);
+//			$data['other']="template=$template";
+			$this->load->view("redirect",$data);
 			
 		}
 	}
@@ -421,6 +421,130 @@ class Site extends CI_Controller
     
     
     ////HOME END
+	
+	//RELATED VIDEO START
+	
+	 public function createrelatedvideos()
+	{
+		$access = array("1");
+		$this->checkaccess($access);
+		$data['videoid']=$this->relatedvideos_model->getvideosdropdown();
+		 $data['relatedvideoid']=$this->relatedvideos_model->getvideosdropdown();
+		$data[ 'page' ] = 'createrelatedvideos';
+		$data[ 'title' ] = 'Create Related Videos';
+		$this->load->view( 'template', $data );	
+	}
+	function createrelatedvideossubmit()
+	{
+		$access = array("1");
+		$this->checkaccess($access);
+		$this->form_validation->set_rules('videoid','Videoid','trim');
+		$this->form_validation->set_rules('relatedvideoid','Relatedvideoid','trim|');
+		if($this->form_validation->run() == FALSE)	
+		{
+			$data['alerterror'] = validation_errors();
+			$data['videoid']=$this->relatedvideos_model->getvideosdropdown();
+			$data['relatedvideoid']=$this->relatedvideos_model->getvideosdropdown();
+			$data['page']='createrelatedvideos';
+			$data['title']='Create Related Videos';
+			$this->load->view('template',$data);
+		}
+		else
+		{
+            $videoid=$this->input->post('videoid');
+            $relatedvideoid=$this->input->post('relatedvideoid');
+			
+			if($this->relatedvideos_model->create($videoid,$relatedvideoid)==0)
+			$data['alerterror']="New related video could not be created.";
+			else
+			$data['alertsuccess']="Related video created Successfully.";
+			
+//			$data['table']=$this->home_model->viewhome();
+			$data['redirect']="site/viewrelatedvideos";
+			//$data['other']="template=$template";
+			$this->load->view("redirect",$data);
+		}
+	}
+	function viewrelatedvideos()
+	{
+		$access = array("1");
+		$this->checkaccess($access);
+        $pagestart = $this->uri->segment(3, 0);        
+        if($pagestart=="")
+        {
+            $pagestart=0;
+        }
+        $modelquery=$this->relatedvideos_model->viewrelatedvideos($pagestart,$this->config->item("per_page"));
+        
+        $config['base_url'] = site_url().'/site/viewrelatedvideos/';
+        $config['total_rows'] = $modelquery->totalcount;
+        
+        $this->pagination->initialize($config); 
+		$data['table']=$modelquery->query;
+		$data['page']='viewrelatedvideos';
+		$data['title']='View Related Videos';
+		$this->load->view('template',$data);
+	}
+    
+	function editrelatedvideos()
+	{
+		$access = array("1");
+		$this->checkaccess($access);
+		$data['videoid']=$this->relatedvideos_model->getvideosdropdown();
+		$data['relatedvideoid']=$this->relatedvideos_model->getvideosdropdown();
+		$data['before']=$this->relatedvideos_model->beforeedit($this->input->get('id'));
+		$before=$data['before'];
+		$data['page']='editrelatedvideos';
+		$data['title']='Edit Related Videos';
+		$this->load->view('template',$data);
+	}
+	function editrelatedvideossubmit()
+	{
+		$access = array("1");
+		$this->checkaccess($access);
+		
+		$this->form_validation->set_rules('videoid','Videoid','trim');
+		$this->form_validation->set_rules('relatedvideoid','Relatedvideoid','trim|');
+		if($this->form_validation->run() == FALSE)	
+		{
+			$data['videoid']=$this->relatedvideos_model->getvideosdropdown();
+			$data['relatedvideoid']=$this->relatedvideos_model->getvideosdropdown();
+			$data['alerterror'] = validation_errors();
+			$data['before']=$this->relatedvideos_model->beforeedit($this->input->post('id'));
+			$data['page']='editrelatedvideos';
+			$data['title']='Edit Related Videos';
+			$this->load->view('template',$data);
+		}
+		else
+		{
+			
+			 $id=$this->input->get_post('id');
+			 $videoid=$this->input->get_post('videoid');
+            $relatedvideoid=$this->input->post('relatedvideoid');
+           
+			if($this->relatedvideos_model->edit($id,$videoid,$relatedvideoid)==0)
+			$data['alerterror']="Related Videos was unsuccesfully edited";
+			else
+			$data['alertsuccess']="Related Videos edited Successfully.";			
+			$data['redirect']="site/viewrelatedvideos";
+//			$data['other']="template=$template";
+			$this->load->view("redirect",$data);
+			
+		}
+	}
+	
+	function deleterelatedvideos()
+	{
+		$access = array("1");
+		$this->checkaccess($access);
+		$this->relatedvideos_model->deleterelatedvideos($this->input->get('id'));
+//		$data['table']=$this->home_model->viewhome();
+		$data['alertsuccess']="Related videos deleted successfully";
+	    $data['redirect']="site/viewrelatedvideos";
+        $this->load->view("redirect",$data);
+	}
+    
+	//RELATED VIDEO END
 	function changeuserstatus()
 	{
 		$access = array("1");
