@@ -287,7 +287,7 @@ margin: auto;">
                     <div class="feed-video text-center">
                         <img class="feed-img img-responsive" src="<?php echo base_url('uploads/')."/".$row->image; ?>">
                         <a  href="<?php echo site_url('website/description?id=').$row->id;?>">
-                           <div class="play">< class="" src="<?php echo base_url('frontassets/img/video-img/play.png'); ?>"></div> 
+                           <div class="play"><img class="" src="<?php echo base_url('frontassets/img/video-img/play.png'); ?>"></div> 
                         </a>
                         <div class="feed-det">
                             <p class="rating"><?php echo $row->rating.".0";?></p>
