@@ -277,12 +277,15 @@ margin: auto;">
     </div>
 </div>
             </div>
-            <div class="row">
-               <?php
-                foreach ($relatedvideos as $row)
+            
+<!--
+                 <div class="row">
+                <?php
+                foreach ($videos as $row)
                 {
                 ?>
                 <div class="col-md-4">
+                  
                     <div class="feed-video text-center">
                         <img class="feed-img img-responsive" src="<?php echo base_url('uploads/')."/".$row->image; ?>">
                         <a  href="<?php echo site_url('website/description?id=').$row->id;?>">
@@ -294,14 +297,42 @@ margin: auto;">
                         </div>
                     </div>
                     <div class="map-feed">
-                        <i class="fa fa-map-marker"><span>name</span></i>
+                        <i class="fa fa-map-marker"><span><?php echo $row->location;?></span></i>
                         <i class="fa fa-heart pull-right" style="margin-top:2px;"><span><?php echo $row->likes;?></span></i>
                     </div>
-  				 <?php 
+
+                </div>
+                <?php 
                 }
                 ?>
-                </div>                
-                
+            </div>
+-->
+            <div class="row">
+               <?php
+                foreach ($relatedvideos as $row)
+                {
+                ?>
+                <div class="col-md-4">
+                    <div class="feed-video text-center">
+                        <img class="feed-img img-responsive" src="<?php echo base_url('uploads/')."/".$row->image; ?>">
+                        <a  href="<?php echo site_url('website/description?id=').$row->id;?>">
+                           <div class="play">< class="" src="<?php echo base_url('frontassets/img/video-img/play.png'); ?>"></div> 
+                        </a>
+                        <div class="feed-det">
+                            <p class="rating"><?php echo $row->rating.".0";?></p>
+                            <h5><?php echo $row->title;?><br><span> by <?php echo $row->firstname." ".$row->lastname;?></span></h5>
+                        </div>
+                    </div>
+                    <div class="map-feed">
+                        <i class="fa fa-map-marker"><span><?php echo $row->location;?></span></i>
+                        <i class="fa fa-heart pull-right" style="margin-top:2px;"><span><?php echo $row->likes;?></span></i>
+                    </div>
+  			  
+                </div>  
+                     	 <?php 
+                }
+                ?>       
+                   </div>
 <!--
                 <div class="col-md-4">
                     <div class="feed-video text-center">
@@ -335,7 +366,7 @@ margin: auto;">
                         <i class="fa fa-heart pull-right" style="margin-top:2px;"><span>400 likes</span></i>
                     </div>
 -->
-                </div>
+             
               
             </div>
     <div class="load-feed text-center">
